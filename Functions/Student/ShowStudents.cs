@@ -56,7 +56,7 @@ namespace DB_Lab_1_SQL.Functions.Student
                 string query = $@"
                         SELECT Students.FirstName, Students.LastName, Classes.ClassName
                         FROM Students
-                        JOIN Classes ON Students.Id = Classes.UserId
+                        JOIN Classes ON Student_ID = Classes.UserId
                         ORDER BY {orderBy} {sortOrder}
                         ";
 

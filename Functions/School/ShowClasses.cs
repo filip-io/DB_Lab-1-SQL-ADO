@@ -122,7 +122,7 @@ namespace DB_Lab_1_SQL.Functions.School
                             string query = $@"
                                     SELECT Students.FirstName, Students.LastName
                                     FROM Students
-                                    JOIN Classes ON Students.Id = Classes.Id
+                                    JOIN Classes ON Student_ID = Classes.Class_ID
                                     WHERE ClassName = @ClassName
                                     ORDER BY {orderBy} {sortOrder}
                                 "; 

@@ -177,26 +177,26 @@ namespace DB_Lab_1_SQL.Functions.Student
                                                     command.Parameters.AddWithValue("@LastName", inputLastName);
 
                                                     decimal userIdDecimal = Convert.ToDecimal(command.ExecuteScalar());
-                                                    int userId = (int)userIdDecimal;
+                                                    int Student_ID_FK = (int)userIdDecimal;
 
                                                     string insertStudentCourseQuery = @"
-                                                    INSERT INTO Courses (UserId, Course) 
-                                                    VALUES (@UserId, @newStudentCourse);
+                                                    INSERT INTO Courses (Student_ID_FK, Course) 
+                                                    VALUES (@Student_ID_FK, @newStudentCourse);
                                                 ";
 
                                                     using (SqlCommand insertStudentRoleCommand = new SqlCommand(insertStudentCourseQuery, connection))
                                                     {
-                                                        insertStudentRoleCommand.Parameters.AddWithValue("@UserId", userId);
+                                                        insertStudentRoleCommand.Parameters.AddWithValue("@Student_ID_FK", Student_ID_FK);
                                                         insertStudentRoleCommand.Parameters.AddWithValue("@newStudentCourse", newStudentCourse);
 
                                                         insertStudentRoleCommand.ExecuteNonQuery();
                                                     }
 
                                                     using (SqlCommand insertStudentClassCommand = new SqlCommand(
-                                                        @"INSERT INTO Classes (UserId, ClassName)
-                                                      VALUES (@UserId, @ClassName)", connection))
+                                                        @"INSERT INTO Classes (Student_ID_FK, ClassName)
+                                                      VALUES (@Student_ID_FK, @ClassName)", connection))
                                                     {
-                                                        insertStudentClassCommand.Parameters.AddWithValue("@UserId", userId);
+                                                        insertStudentClassCommand.Parameters.AddWithValue("@Student_ID_FK", Student_ID_FK);
                                                         insertStudentClassCommand.Parameters.AddWithValue("@ClassName", newStudentClass);
 
                                                         insertStudentClassCommand.ExecuteNonQuery();
