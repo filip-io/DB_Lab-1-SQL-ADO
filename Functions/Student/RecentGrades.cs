@@ -18,7 +18,7 @@ namespace DB_Lab_1_SQL.Functions.Student
                     {
                         using (SqlCommand command = new SqlCommand(@"SELECT Students.FirstName, Students.LastName, Courses.Course, Courses.Grade, Courses.DateSet
                           FROM Students
-                          JOIN Courses ON Students.Id = Courses.UserId
+                          JOIN Courses ON Student_ID = Courses.UserId
                           WHERE YEAR(Courses.DateSet) = YEAR(GETDATE())
                             AND MONTH(Courses.DateSet) = MONTH(GETDATE())
                           ORDER BY Students.FirstName ASC;", connection))

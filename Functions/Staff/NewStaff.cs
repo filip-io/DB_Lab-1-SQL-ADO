@@ -132,13 +132,13 @@ namespace DB_Lab_1_SQL.Functions.Staff
                                                     int userId = (int)userIdDecimal;
 
                                                     string insertStaffRoleQuery = @"
-                                                                INSERT INTO StaffRole (UserId, Role)
-                                                                VALUES (@UserId, @newEmployeeRole);
+                                                                INSERT INTO StaffRole (Staff_ID_FK, Role)
+                                                                VALUES (@Staff_ID_FK, @newEmployeeRole);
                                                             ";
 
                                                     using (SqlCommand insertStaffRoleCommand = new SqlCommand(insertStaffRoleQuery, connection))
                                                     {
-                                                        insertStaffRoleCommand.Parameters.AddWithValue("@UserId", userId);
+                                                        insertStaffRoleCommand.Parameters.AddWithValue("@Staff_ID_FK", userId);
                                                         insertStaffRoleCommand.Parameters.AddWithValue("@newEmployeeRole", newEmployeeRole);
                                                         insertStaffRoleCommand.ExecuteNonQuery();
                                                     }

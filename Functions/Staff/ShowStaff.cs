@@ -48,7 +48,7 @@ namespace DB_Lab_1_SQL.Functions.Staff
                         using (SqlCommand command = new SqlCommand(
                         @"SELECT Staff.FirstName, Staff.LastName, StaffRole.Role
                           FROM Staff
-                          JOIN StaffRole ON Staff.Id = StaffRole.UserId", connection))
+                          JOIN StaffRole ON Staff.Staff_ID = StaffRole.Staff_ID_FK", connection))
                         {
                             try
                             {
@@ -119,7 +119,7 @@ namespace DB_Lab_1_SQL.Functions.Staff
                     string query = @"
                         SELECT Staff.FirstName, Staff.LastName, StaffRole.Role
                         FROM Staff
-                        JOIN StaffRole ON Staff.Id = StaffRole.UserId
+                        JOIN StaffRole ON Staff.Staff_ID = StaffRole.Staff_ID_FK
                         WHERE Role = @Role
                     ";
 
